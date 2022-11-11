@@ -1,0 +1,65 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
+header.bg-header {
+  background-color: #0f6961;
+  color: white;
+}
+div.container > .home-page-box {
+  background-color: #f6f6f6;
+  min-height: 500px;
+  box-shadow: 7px 10px 23px -8px rgba(0, 0, 0, 0.54);
+  border-radius: 20px;
+}
+div.container > .home-page-box > div.row > div.col-6 > ul {
+  border: none;
+}
+.row > .form-home-page {
+  height: 40px;
+}
+.row > .form-home-page button {
+  width: 200px;
+  margin-left: 10px;
+}
+.row > .form-home-page button.bg-button-guardar {
+  background-color: #0f6961;
+  color: white;
+}
+.row > .form-buttons > button.btn-externo,
+.row > .form-buttons > button.btn-visita {
+  width: 200px;
+  margin-left: 10px;
+  background-color: #e1a43e;
+  color: white;
+}
+div.container > .home-page-box > div.content-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+div.container > .home-page-box > div.row > div > input {
+  border: none;
+  padding: 10px;
+  border-radius: 20px;
+  margin: 10px 10px 0 0;
+  background-color: #0f6961;
+  color: white;
+}
+ul > li > button.nav-link {
+  color: #0f6961;
+  transition: none;
+}
+ul > li > button.nav-link:hover {
+  color: #e1a43e;
+  border: none !important;
+}
+ul > li > button.active {
+  background-color: #e1a43e !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+div.modal-dialog > .modal-content > .modal-footer > button {
+  color: white;
+  background-color: #0f6961;
+}

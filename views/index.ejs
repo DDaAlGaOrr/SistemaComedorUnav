@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="container-fluid bg-header p-2">
+      <nav class="navbar px-5">
+        <a class="navbar-brand" href="#">
+          <img
+            src="images/BLANCO UNAV NEW-NEW-09.png"
+            alt=""
+            style="width: 250px; height: 60px"
+          />
+        </a>
+        <div class="d-flex flex-row-reverse">
+          <h3>Sistema comedor</h3>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="home-page-box mt-4">
+        <div class="d-flex row">
+          <div class="col-6">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="home-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#home-tab-pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="home-tab-pane"
+                  aria-selected="true"
+                >
+                  Desayuno
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="profile-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#profile-tab-pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="profile-tab-pane"
+                  aria-selected="false"
+                >
+                  Comida
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="contact-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#contact-tab-pane"
+                  type="button"
+                  role="tab"
+                  aria-controls="contact-tab-pane"
+                  aria-selected="false"
+                >
+                  Cena
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div class="col-6 d-flex flex-row-reverse">
+            <input type="date" name="date" id="date" />
+          </div>
+        </div>
+        <div class="tab-content container content-center" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home-tab-pane"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+            tabindex="0"
+          >
+            <%- include('templates/Desayuno/Interno/interno.ejs'); -%>
+            <div class="row pt-3">
+              <div class="d-flex form-buttons">
+                <button
+                  class="btn btn-externo"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalDesayunoExterno"
+                >
+                  Externo
+                </button>
+                <%- include('templates/Desayuno/Externo/externo.ejs'); -%>
+                <button
+                  class="btn btn-visita"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalDesayunoVisita"
+                >
+                  Visita
+                </button>
+                <%- include('templates/Desayuno/Visita/visita.ejs'); -%>
+              </div>
+            </div>
+          </div>
+          <!-- end desayuno -->
+          <div
+            class="tab-pane fade"
+            id="profile-tab-pane"
+            role="tabpanel"
+            aria-labelledby="profile-tab"
+            tabindex="0"
+          >
+            <%- include('templates/Comida/Interno/interno.ejs'); -%>
+            <div class="row pt-3">
+              <div class="d-flex form-buttons">
+                <button
+                  type="button"
+                  class="btn btn-externo"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalComidaExterno"
+                >
+                  Externo
+                </button>
+                <%- include('templates/Comida/Externo/externo.ejs'); -%>
+                <button
+                  class="btn btn-visita"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalComidaVisita"
+                >
+                  Visita
+                </button>
+                <%- include('templates/Comida/Visita/visita.ejs'); -%>
+              </div>
+            </div>
+          </div>
+          <!-- end comida -->
+          <div
+            class="tab-pane fade"
+            id="contact-tab-pane"
+            role="tabpanel"
+            aria-labelledby="contact-tab"
+            tabindex="0"
+          >
+            <%- include('templates/Cena/Interno/interno.ejs'); -%>
+            <div class="row pt-3">
+              <div class="d-flex form-buttons">
+                <button
+                  class="btn btn-externo"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalExternoCena"
+                >
+                  Externo
+                </button>
+                <%- include('templates/Cena/Externo/externo.ejs'); -%>
+                <button
+                  class="btn btn-visita"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalExternoVisita"
+                >
+                  Visita
+                </button>
+                <%- include('templates/Cena/Visita/visita.ejs'); -%>
+              </div>
+            </div>
+          </div>
+          <!-- end cena -->
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

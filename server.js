@@ -1,5 +1,6 @@
 const express = require('express');
-const app = express();
+const app = express()
+// const connection = require('./database/connection')
 
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended:false}));
@@ -11,22 +12,27 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/internoDesayuno',(req,res)=>{
-    console.log(req.body)
-    console.log('Desayuno interno')
+    const fecha = req.body.date
+    const matricula = req.body.matricula
+
+    console.log(`${fecha} ${matricula}`)
 })
 app.post('/externoDesayuno',(req,res)=>{
     console.log(req.body)
-    console.log('Desayuno externo')
+    console.log('desayuno externo')
 })
 app.post('/visitaDesayuno',(req,res)=>{
     console.log(req.body)
-    console.log('Desayuno visita')
+    console.log('desayuno visita')
+
 })
 
 
 app.post('/internoComida',(req,res)=>{
-    console.log(req.body)
-    console.log('Comida interno')
+    const fecha = req.body.date
+    const matricula = req.body.matricula
+
+    console.log(`${fecha} ${matricula}`)
 })
 app.post('/externoComida',(req,res)=>{
     console.log(req.body)
@@ -37,9 +43,12 @@ app.post('/visitaComida',(req,res)=>{
     console.log('Comida visita')
 })
 
+
 app.post('/internoCena',(req,res)=>{
-    console.log(req.body)
-    console.log('Cena interno')
+    const fecha = req.body.date
+    const matricula = req.body.matricula
+
+    console.log(`${fecha} ${matricula}`)
 })
 app.post('/externoCena',(req,res)=>{
     console.log(req.body)
@@ -49,6 +58,7 @@ app.post('/visitaCena',(req,res)=>{
     console.log(req.body)
     console.log('Cena visita')
 })
+
 
 app.listen(3000, ()=>{
     console.log('SERVER corriendo en http://localhost:3000');

@@ -41,3 +41,15 @@ btnVisitaCena.addEventListener("click", () => {
 btnCenaExterno.addEventListener("click", () => {
   inputDate.setAttribute("form", "formCenaExterno");
 });
+
+const tiempoTranscurrido = Date.now();
+const hoy = new Date(tiempoTranscurrido)
+
+let year = hoy.getFullYear()
+let month = hoy.getMonth() + 1
+let day = String(hoy.getDate()).padStart(2,'0')
+
+const fechaActual =  `${year}-${month}-${day}`
+document.getElementById("date").value = fechaActual;
+
+

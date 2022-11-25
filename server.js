@@ -1,4 +1,5 @@
 const express = require('express');
+const { autoCommit } = require('oracledb');
 const app = express()
 const oracledb = require('oracledb');
 
@@ -15,7 +16,9 @@ try {
         connectionString: "192.168.1.31:49161/" 
       }) 
 
-      app.get('/',(req,res)=>res.render('index.ejs'))
+      app.get('/',(req,res)=> {
+        res.render('index.ejs')
+      })
     
     app.post('/internoDesayuno',(req,res)=>{
         const fecha = req.body.date
@@ -26,12 +29,41 @@ try {
         JOIN ALUM_PERSONAL AP ON AE.CODIGO_PERSONAL = AP.CODIGO_PERSONAL
         WHERE AE.CODIGO_PERSONAL = ${matricula} AND AE.ESTADO = 'I'`
 
+        const queryVerificarCandado = `SELECT CODIGO_PERSONAL FROM CAND_ALUMNO 
+        WHERE CODIGO_PERSONAL = ${matricula} 
+        AND ESTADO = 'A' 
+        AND F_CREADO = 
+        (SELECT MAX(F_CREADO) FROM CAND_ALUMNO 
+        WHERE CODIGO_PERSONAL = ${matricula})`
+
         connection.execute(queryAlumnosInternosInscritos,(error,results)=>{
             if(error){
                 console.log(error)
             }
+            if(results.rows.length != 0){
+                const nombreInterno = results.rows[0][1]
+                connection.execute(queryVerificarCandado,(error,results)=>{
+                    if(error){
+                        console.log(error)
+                    }
+                    if(results.rows.length != 0){
+                        console.log('Alumno interno tiene candado')
+                    }
+                    else{
+                        connection.execute(`INSERT INTO "SYSTEM"."REG_COMIDAS"  
+                        VALUES (:1,:2,:3,:4,:5)`,[`TO_DATE('${fecha}', 'YYYY-MM-DD'),'DESAYUNO',${matricula},'INTERNO','${nombreInterno}'`],{autoCommit:true},(error,results)=>{
+                            if(error){
+                                console.log(error)
+                            }
+                            else{
+                                console.log(results)
+                            }
+                        })
+                    }
+                })
+            }
             else{
-                console.log(results.rows)
+                console.log("Interno no inscrito en el periodo actual")
             }
         })
         console.log(`${fecha} ${typeof matricula}`)

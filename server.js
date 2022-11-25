@@ -50,8 +50,9 @@ try {
                         console.log('Alumno interno tiene candado')
                     }
                     else{
-                        connection.execute(`INSERT INTO "SYSTEM"."REG_COMIDAS"  
-                        VALUES (:1,:2,:3,:4,:5)`,[`TO_DATE('${fecha}', 'YYYY-MM-DD'),'DESAYUNO',${matricula},'INTERNO','${nombreInterno}'`],{autoCommit:true},(error,results)=>{
+                        connection.execute(`INSERT INTO "SYSTEM"."REG_COMIDAS" 
+                        (FECHA, COMIDA, CODIGO_PERSONAL, TIPO, NOMBRE) 
+                        VALUES (TO_DATE('${fecha}', 'YYYY-MM-DD'),'DESAYUNO',${matricula},'INTERNO','${nombreInterno}')`,(error,results)=>{
                             if(error){
                                 console.log(error)
                             }

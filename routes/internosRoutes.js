@@ -4,7 +4,7 @@ const internosController = require('./../controllers/internosController')
 
 router
     .post('/internoDesayuno',internosController.desayunoInterno)
-    .post('/internoComida')
-    .post('/internoCena')
+    .post('/internoComida',internosController.comidaInterno)
+    .post('/internoCena',internosController.CenaInterno)
 
 module.exports = router

@@ -3,6 +3,7 @@ const app = express();
 
 const internosRutas = require('./routes/internosRoutes')
 const externoRutas = require('./routes/externosRoutes')
+const visitasRutas = require('./routes/visitasRoutes')
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(internosRutas)
 app.use(externoRutas)
+app.use(visitasRutas)
 
 app.get("/", (req, res) => {
   res.render("index.ejs");

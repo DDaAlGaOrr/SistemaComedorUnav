@@ -18,14 +18,28 @@ internosController.desayunoInterno = async(req,res)=>{
                 tipo: 'INTERNO',
             }
             const resultAgregar = await internoModel.agregarRegistroComida(internoDesayuno)
-            console.log(resultAgregar.rowsAffected)
+            if(resultAgregar.rowsAffected != 0){
+                res.render('',{
+                    alert:true,
+                    icon: 'success',
+                    title: 'Alumno permitido',
+                })
+            }
         }
         else{
-            console.log('Alumno interno tiene candado')
+            res.render('',{
+                alert:true,
+                icon: 'error',
+                title: 'Alumno tiene candado',
+            })
         }
     }
     else{
-        console.log('No es interno o no esta inscrito')
+        res.render('',{
+            alert:true,
+            icon: 'error',
+            title: 'No es alumno interno',
+        })
     }
 }
 internosController.comidaInterno = async(req,res)=>{
@@ -44,14 +58,28 @@ internosController.comidaInterno = async(req,res)=>{
                 tipo: 'INTERNO',
             }
             const resultAgregar = await internoModel.agregarRegistroComida(internoDesayuno)
-            console.log(resultAgregar.rowsAffected)
+            if(resultAgregar.rowsAffected != 0){
+                res.render('',{
+                    alert:true,
+                    icon: 'success',
+                    title: 'Alumno permitido',
+                })
+            }
         }
         else{
-            console.log('Alumno interno tiene candado')
+            res.render('',{
+                alert:true,
+                icon: 'error',
+                title: 'Alumno tiene candado',
+            })
         }
     }
     else{
-        console.log('No es interno o no esta inscrito')
+        res.render('',{
+            alert:true,
+            icon: 'error',
+            title: 'No es alumno interno',
+        })
     }
 }
 internosController.CenaInterno = async(req,res)=>{
@@ -71,14 +99,28 @@ internosController.CenaInterno = async(req,res)=>{
                 tipo: 'INTERNO',
             }
             const resultAgregar = await internoModel.agregarRegistroComida(internoDesayuno)
-            console.log(resultAgregar.rowsAffected)
+            if(resultAgregar.rowsAffected != 0){
+                res.render('',{
+                    alert:true,
+                    icon: 'success',
+                    title: 'Alumno permitido',
+                })
+            }
         }
         else{
-            console.log('Alumno interno tiene candado')
+            res.render('',{
+                alert:true,
+                icon: 'error',
+                title: 'Alumno tiene candado',
+            })
         }
     }
     else{
-        console.log('No es interno o no esta inscrito')
+        res.render('',{
+            alert:true,
+            icon: 'error',
+            title: 'No es alumno interno',
+        })
     }
 }
 

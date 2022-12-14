@@ -17,14 +17,14 @@ internosController.desayunoInterno = async(req,res)=>{
                 comida: 'DESAYUNO',
                 tipo: 'INTERNO',
             }
-            const resultAgregar = await internoModel.agregarRegistroComida(internoDesayuno)
-            if(resultAgregar.rowsAffected != 0){
-                res.render('',{
-                    alert:true,
-                    icon: 'success',
-                    title: 'Alumno permitido',
-                })
-            }
+                const resultAgregar = await internoModel.agregarRegistroComida(internoDesayuno)
+                if(resultAgregar.rowsAffected != 0){
+                    res.render('',{
+                        alert:true,
+                        icon: 'success',
+                        title: 'Alumno permitido',
+                    })
+                }
         }
         else{
             res.render('',{

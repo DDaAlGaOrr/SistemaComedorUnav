@@ -1,5 +1,6 @@
 const oracledb = require("oracledb");
 const internoModel = () => {}
+
 const createConnection = async () => {
     try {
         const connection = await oracledb.getConnection({
@@ -36,6 +37,25 @@ internoModel.verificarCandado = async(matricula)=>{
     } catch (error) {
       console.log(error);
     }
+}
+
+// hacer que se valide si el alumno ya tomo su comida 
+internoModel.verificarRegistroComida = async(data)=>{
+  const connection = await createConnection()
+  console.log(data)
+  let binds = {
+    queryTarget: {
+    val: data.fecha, type: oracledb.DATE
+  },
+}
+  const queryVerificarRegistroComida = `SELECT FECHA,COMIDA,CODIGO_PERSONAL FROM reg_comidas
+  where FECHA = :fecha`
+  try{
+    return await connection.execute(queryVerificarRegistroComida,binds)
+  }
+  catch(error){
+    console.log(error)
+  }
 }
 internoModel.agregarRegistroComida = async(data)=>{
   const connection = await createConnection();
